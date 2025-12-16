@@ -1,0 +1,92 @@
+# Instrucciones Personalizadas para Copilot Premium
+
+## Contexto del Proyecto
+Este es un proyecto de visualización de datos con gráficos interactivos que utiliza HTML, CSS y JavaScript puro. El objetivo es mantener código limpio, mantenible y siguiendo las mejores prácticas de desarrollo web moderno.
+
+## Principios de Arquitectura
+
+### Separación de Responsabilidades
+- HTML: Estructura semántica únicamente, sin lógica de presentación
+- CSS: Todo el estilo visual debe estar en archivos .css externos
+- JavaScript: Lógica de negocio y manipulación del DOM en archivos .js externos
+- NUNCA usar atributos onclick, onchange u otros manejadores de eventos inline en HTML
+
+### Gestión de Eventos
+- Utilizar addEventListener() en JavaScript para todos los eventos
+- Mantener los event listeners en el archivo JavaScript correspondiente
+- Usar delegación de eventos cuando sea apropiado para mejor rendimiento
+
+## Estándares de Código JavaScript
+
+### Nomenclatura
+- Variables y funciones: camelCase
+- Constantes: UPPER_SNAKE_CASE
+- Clases: PascalCase
+- IDs y clases CSS: kebab-case o camelCase consistente
+
+### Estructura
+- Declarar variables al inicio de su scope
+- Usar const por defecto, let cuando sea necesario reasignar
+- Evitar var
+- Funciones pequeñas y con un solo propósito
+- Comentarios descriptivos para lógica compleja
+
+### Manejo de Datos
+- Validar datos de entrada del usuario
+- Sanitizar datos antes de procesarlos
+- Manejar errores con try-catch donde sea apropiado
+- Proporcionar feedback visual al usuario
+
+## Estándares CSS
+
+### Diseño Moderno
+- Utilizar CSS Grid y Flexbox para layouts
+- Diseño responsive con media queries
+- Animaciones suaves y transiciones CSS
+- Variables CSS para colores y valores reutilizables
+
+### Organización
+- Agrupar estilos por componentes
+- Evitar selectores demasiado específicos
+- Preferir clases sobre IDs para estilos
+- Mantener especificidad baja
+
+## Accesibilidad y UX
+- Etiquetas semánticas HTML5 (main, section, article, etc.)
+- Atributos aria-label donde sea necesario
+- Contraste de colores adecuado
+- Estados de hover y focus visibles
+- Mensajes de error claros y útiles
+
+## Rendimiento
+- Minimizar manipulaciones del DOM
+- Usar fragmentos de documento para inserciones múltiples
+- Evitar código redundante o repetitivo
+- Cargar recursos de manera eficiente
+
+## Seguridad
+- NUNCA usar eval()
+- Validar y sanitizar entradas del usuario
+- Escapar contenido HTML cuando sea necesario
+- Seguir principio de menor privilegio
+
+## Documentación
+- README.md completo con descripción, instrucciones, guía de uso, estructura de archivos y tecnologías
+- Comentarios en código para lógica compleja
+- Documentación de funciones principales
+
+## Cuando Revises o Sugieras Código
+1. Prioriza la separación de responsabilidades: Si ves eventos inline, sugiere moverlos a JavaScript
+2. Valida las mejores prácticas: Señala código que viole estos principios
+3. Sugiere mejoras incrementales: No reescribas todo, mejora paso a paso
+4. Explica el "por qué": No solo digas qué cambiar, explica las razones
+5. Mantén la consistencia: Sigue los patrones ya establecidos en el proyecto
+
+## Ejemplo de Refactorización
+EVITAR: <button onclick="updateChartType()">Actualizar</button>
+PREFERIR: <button id="update-btn">Actualizar</button> + document.getElementById('update-btn').addEventListener('click', updateChartType);
+
+Nota importante: Estas instrucciones están diseñadas para mantener un código profesional, escalable y mantenible. Siempre prioriza la claridad y la separación de responsabilidades sobre la brevedad del código.
+```
+
+Simplemente copia todo el texto de arriba y pégalo en el campo de instrucciones personalizadas de Copilot. ¡Listo para usar! 🚀
